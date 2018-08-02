@@ -41,14 +41,20 @@ public class BaseViewHold extends RecyclerView.ViewHolder implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        if (listener != null)
-            listener.onItemClick(v, getAdapterPosition());
+        if (listener != null) {
+            int position = getAdapterPosition();
+            if (position >= 0) {
+                listener.onItemClick(v, position);
+            }
+        }
     }
 
     @Override
     public boolean onLongClick(View v) {
-        if (listener != null)
-            listener.onItemLongClick(v, getAdapterPosition());
+        if (listener != null) {
+            int position = getAdapterPosition();
+            listener.onItemLongClick(v, position);
+        }
         return true;
     }
 
