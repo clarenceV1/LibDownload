@@ -213,10 +213,10 @@ public class PtrClassicDefaultHeader extends FrameLayout implements PtrUIHandler
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(getContext().getString(R.string.cube_ptr_last_update));
+        sb.append(getContext().getResources().getString(R.string.cube_ptr_last_update));
 
         if (seconds < 60) {
-            sb.append(seconds + getContext().getString(R.string.cube_ptr_seconds_ago));
+            sb.append(seconds + getContext().getResources().getString(R.string.cube_ptr_seconds_ago));
         } else {
             int minutes = (seconds / 60);
             if (minutes > 60) {
@@ -225,11 +225,11 @@ public class PtrClassicDefaultHeader extends FrameLayout implements PtrUIHandler
                     Date date = new Date(mLastUpdateTime);
                     sb.append(sDataFormat.format(date));
                 } else {
-                    sb.append(hours + getContext().getString(R.string.cube_ptr_hours_ago));
+                    sb.append(hours + getContext().getResources().getString(R.string.cube_ptr_hours_ago));
                 }
 
             } else {
-                sb.append(minutes + getContext().getString(R.string.cube_ptr_minutes_ago));
+                sb.append(minutes + getContext().getResources().getString(R.string.cube_ptr_minutes_ago));
             }
         }
         return sb.toString();

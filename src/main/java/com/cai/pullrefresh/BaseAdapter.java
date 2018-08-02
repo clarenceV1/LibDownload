@@ -77,10 +77,10 @@ public abstract class BaseAdapter<T, H extends BasePtrViewHold> extends Recycler
      * @param newData
      */
     public void addData(int position, T newData) {
-        if (!isPositionIn(position))
-            return;
-        datas.add(position, newData);
-        notifyItemInserted(position);
+        if (position >= 0 && position <= datas.size()) {
+            datas.add(position, newData);
+            notifyItemInserted(position);
+        }
     }
 
     /**
@@ -89,10 +89,10 @@ public abstract class BaseAdapter<T, H extends BasePtrViewHold> extends Recycler
      * @param position
      */
     public void removeData(int position) {
-        if (!isPositionIn(position))
-            return;
-        datas.remove(position);
-        notifyItemRemoved(position);
+        if (position >= 0 && position < datas.size()) {
+            datas.remove(position);
+            notifyItemRemoved(position);
+        }
     }
 
     /**
@@ -102,7 +102,7 @@ public abstract class BaseAdapter<T, H extends BasePtrViewHold> extends Recycler
      * @return
      */
     public T getData(int position) {
-        if (isPositionIn(position))
+        if (position >= 0 && position < datas.size())
             return datas.get(position);
         else
             return null;
@@ -115,17 +115,6 @@ public abstract class BaseAdapter<T, H extends BasePtrViewHold> extends Recycler
      */
     public List<T> getDatas() {
         return datas;
-    }
-
-    //position 是否在数组范围内
-    private boolean isPositionIn(int position) {
-        int size = datas.size();
-        if (size == 0 && position == 0) {
-            return true;
-        } else if (size > 0 && position <= size) {
-            return true;
-        } else
-            return false;
     }
 
     @Override
