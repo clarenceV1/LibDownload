@@ -108,6 +108,13 @@ public abstract class BaseAdapter<T, H extends BasePtrViewHold> extends Recycler
             return null;
     }
 
+    public T getLastData() {
+        if (datas != null && datas.size() > 0) {
+            return datas.get(datas.size() - 1);
+        }
+        return null;
+    }
+
     /**
      * 获取所有数据
      *
