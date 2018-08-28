@@ -17,7 +17,7 @@ import com.cai.pullrefresh.swipemenulistview.BasePtrFrameLayout;
 
 public class BaseListPtrFrameLayout extends BasePtrFrameLayout implements PtrHandler {
 
-    protected int inLastItemLoading = 3;//当处于倒数第N个item的时候自动加载更多
+    protected int inLastItemLoading = 1;//当处于倒数第N个item的时候自动加载更多
     protected boolean isRefreshing;//是否在刷新中
     protected boolean isLoadMoreing;//是否正在加载更多
     protected boolean isNoMore;//是否是没有更多数据
