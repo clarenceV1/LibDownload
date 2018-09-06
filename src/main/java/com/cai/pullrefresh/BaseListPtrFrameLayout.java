@@ -89,6 +89,9 @@ public class BaseListPtrFrameLayout extends BasePtrFrameLayout implements PtrHan
        super.onRefreshBegin(frame);
     }
 
+    public boolean isRefreshing(){
+        return isRefreshing;
+    }
     /**
      * 完成加载更多
      *
