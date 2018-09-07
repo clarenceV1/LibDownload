@@ -22,21 +22,26 @@ public abstract class PullRefreshLayout extends RelativeLayout implements PtrUIH
     private static final String TIME_FILE_NAME = "pullrefresh_time_key";//保存刷新头部时间的文件名
     private String mLastUpdateTimeKey;//存储时间的key值
 
+    Context context;
     public PullRefreshLayout(Context context) {
         super(context);
+        this.context = context;
     }
 
     public PullRefreshLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
     }
 
     public PullRefreshLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.context = context;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public PullRefreshLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        this.context = context;
     }
 
     /**
@@ -75,24 +80,24 @@ public abstract class PullRefreshLayout extends RelativeLayout implements PtrUIH
         try {
 
             if (getContext() == null)
-                return "刚刚";
+                return context.getString(R.string.pull_to_refresh_moment);
 
             SharedPreferences pref = getPref();
             long time = pref.getLong(mLastUpdateTimeKey, 0);
             //时间
             if (time == 0) {
-                return "第一次";
+                return context.getString(R.string.pull_to_refresh_first_time);
             }
             long currentTime = System.currentTimeMillis();
             long dur = currentTime - time;
             if (dur > Time.DAY * 30) {
-                return "很久之前";
+                return context.getString(R.string.pull_to_refresh_time_ago);
             } else if (dur > Time.DAY) {
-                return dur / Time.DAY + "天前";
+                return dur / Time.DAY + context.getString(R.string.pull_to_refresh_day_before);
             } else if (dur > Time.HOUR) {
-                return dur / Time.HOUR + "小时前";
+                return dur / Time.HOUR + context.getString(R.string.pull_to_refresh_hours_before);
             } else if (dur > Time.MINUTES) {
-                return dur / Time.MINUTES + "分钟前";
+                return dur / Time.MINUTES + context.getString(R.string.pull_to_refresh_minutes_before);
             }
         } catch (Exception ex) {
             ex.printStackTrace();

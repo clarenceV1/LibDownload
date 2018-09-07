@@ -2,4 +2,11 @@
     <string name="pull_to_refresh_pull_label">下拉即可刷新…</string>
     <string name="pull_to_refresh_release_label">松开即可刷新…</string>
     <string name="pull_to_refresh_refreshing_label">正在刷新…</string>
+    <string name="pull_to_refresh_moment">刚刚</string>
+    <string name="pull_to_refresh_first_time">第一次</string>
+    <string name="pull_to_refresh_time_ago">很久之前</string>
+    <string name="pull_to_refresh_day_before">天前</string>
+    <string name="pull_to_refresh_hours_before">小时前</string>
+    <string name="pull_to_refresh_minutes_before">分钟前</string>
+    <string name="last_refresh_time">上次刷新时间：</string>
 </resources>

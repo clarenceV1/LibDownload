@@ -86,7 +86,7 @@ public class PullRefreshHeadView extends PullRefreshLayout {
 
     @Override
     public void onUIRefreshPrepare(PtrFrameLayout frame) {
-        timeTV.setText("上次刷新时间：" + getLastRefreshTime());
+        timeTV.setText(context.getString(R.string.last_refresh_time)+ getLastRefreshTime());
     }
 
     @Override
