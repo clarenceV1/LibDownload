@@ -124,19 +124,19 @@ public class ListFooterUtil {
                 progressBar.setVisibility(View.INVISIBLE);
             } else if (state == ListViewFooterState.LOADING) {
                 if (TextUtils.isEmpty(text))
-                    tvMoreText.setText("正在加载更多...");
+                    tvMoreText.setText(tvMoreText.getContext().getString(R.string.loading_more_data));
                 else
                     tvMoreText.setText(text);
                 progressBar.setVisibility(View.VISIBLE);
             } else if (state == ListViewFooterState.COMPLETE) {
                 if (TextUtils.isEmpty(text))
-                    tvMoreText.setText("没有更多数据啦~");
+                    tvMoreText.setText(tvMoreText.getContext().getString(R.string.no_more_data));
                 else
                     tvMoreText.setText(text);
                 progressBar.setVisibility(View.INVISIBLE);
             } else if (state == ListViewFooterState.ERROR) {
                 if (TextUtils.isEmpty(text))
-                    tvMoreText.setText("加载失败！");
+                    tvMoreText.setText(tvMoreText.getContext().getString(R.string.load_error));
                 else
                     tvMoreText.setText(text);
                 progressBar.setVisibility(View.INVISIBLE);

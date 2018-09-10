@@ -9,4 +9,7 @@
     <string name="pull_to_refresh_hours_before">小时前</string>
     <string name="pull_to_refresh_minutes_before">分钟前</string>
     <string name="last_refresh_time">上次刷新时间：</string>
+    <string name="no_more_data">没有更多数据啦~</string>
+    <string name="load_error">加载失败！</string>
+    <string name="loading_more_data">正在加载更多...</string>
 </resources>
