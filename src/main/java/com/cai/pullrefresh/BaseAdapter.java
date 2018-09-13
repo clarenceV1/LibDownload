@@ -42,6 +42,9 @@ public abstract class BaseAdapter<T, H extends BasePtrViewHold> extends Recycler
         addDatas(-1, newdatas);
     }
 
+
+
+
     /**
      * 增加数据
      *
@@ -58,6 +61,13 @@ public abstract class BaseAdapter<T, H extends BasePtrViewHold> extends Recycler
                 datas.addAll(positionStart, newdatas);
                 notifyItemRangeChanged(positionStart, newdatas.size());
             }
+        }
+    }
+
+    public void removeAll(){
+        if(datas != null && !datas.isEmpty()){
+            datas.clear();
+            notifyDataSetChanged();
         }
     }
 
@@ -91,6 +101,14 @@ public abstract class BaseAdapter<T, H extends BasePtrViewHold> extends Recycler
     public void removeData(int position) {
         if (position >= 0 && position < datas.size()) {
             datas.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
+
+
+    public void modifyData(T t,int position){
+        if (position >= 0 && position < datas.size()) {
+            datas.set(position,t);
             notifyItemRemoved(position);
         }
     }
